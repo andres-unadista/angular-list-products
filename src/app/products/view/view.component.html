@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto mt-2">
+      <a class="btn btn-secondary mb-2" routerLink="/">Regresar</a>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Producto</h4>
+          <form [formGroup]="formProduct" *ngIf="!updateState || (updateState && loadData); else loader">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input formControlName="name" type="text" name="name" id="name" class="form-control" placeholder="Ingrese el nombre" aria-describedby="nameId">
+              <div class="alert alert-danger" role="alert" *ngIf="f.name.touched && f.name.invalid">
+                <strong *ngIf="f.name.errors?.required">El nombre es requerido</strong>
+                <strong *ngIf="f.name.errors?.pattern">El nombre debe contener únicamente letras.</strong>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label">Imagen</label>
+              <input formControlName="image" type="url" name="image" id="image" class="form-control" placeholder="Ingrese la url de la imagen" aria-describedby="urlImage">
+              <div class="alert alert-danger" role="alert" *ngIf="f.image.touched && f.image.invalid">
+                <strong *ngIf="f.image.errors?.required">La imagen es requerida</strong>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Descripción</label>
+              <textarea formControlName="description" name="description" id="description" cols="30" rows="5" class="form-control"></textarea>
+              <div class="alert alert-danger" role="alert" *ngIf="f.description.touched && f.description.invalid">
+                <strong *ngIf="f.description.errors?.required">La descripción es requerida</strong>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="price" class="form-label">Precio</label>
+              <input formControlName="price" type="text" name="price" id="price" class="form-control" placeholder="Ingrese el precio" aria-describedby="priceId">
+              <strong *ngIf="f.price.errors?.pattern">El precio debe contener únicamente números.</strong>
+              <div class="alert alert-danger" role="alert" *ngIf="f.price.touched && f.price.invalid">
+                <strong *ngIf="f.price.errors?.required">El precio es requerido</strong>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Cantidad</label>
+              <input formControlName="quantity" type="text" name="quantity" id="quantity" class="form-control" placeholder="Ingrese de la descripción" aria-describedby="quantityId">
+              <div class="alert alert-danger" role="alert" *ngIf="f.quantity.touched && f.quantity.invalid">
+                <strong *ngIf="f.quantity.errors?.required">La cantidad es requerida</strong>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="button" name="update" id="update" (click)="update()" class="btn btn-primary btn-block" *ngIf="updateState">Actualizar</button>
+              <button type="button" name="save" id="save" (click)="save()" class="btn btn-primary btn-block" *ngIf="!updateState">Guardar</button>
+            </div>
+          </form>
+          <ng-template #loader>
+            <app-loader></app-loader>
+          </ng-template>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

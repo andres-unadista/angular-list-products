@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURl: 'http://127.0.0.1:8000/api/',
+  token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTY0MzY0NTAwNCwiZXhwIjoxNjQzNjQ4NjA0LCJuYmYiOjE2NDM2NDUwMDQsImp0aSI6ImtQbk1MTXVQYzBmdjRmSTIiLCJzdWIiOjEwLCJwcnYiOiI4N2UwYWYxZWY5ZmQxNTgxMmZkZWM5NzE1M2ExNGUwYjA0NzU0NmFhIn0.YHNpxkbunnFhDuYRLzxEiPzOh6EdAwVFxjGC-BsxnBs'
 };
 
 /*
